@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-export const Container = styled.section`
+export const TableWrapper = styled.div`
 background-color: #0080ed;
+height:70vh;
+background-color:pink;
+overflow-y:auto
 `;
+
 
 export const Header = styled.header`
 display: flex;
@@ -61,24 +65,24 @@ font-size: 1.2rem;
 export const ItemText = styled.span`
 font-family: "Ubuntu", sans-serif;
 border-bottom: 2px solid #ffff;
+width:18%
 `;
+
+export const ItemHeader = styled.span`
+font-family: "Ubuntu", sans-serif;
+border-bottom: 2px solid #ffff;
+width:18%
+`;
+
+
 
 export const ItemBtn = styled.button`
 border: none;
 outline: none;
 background-color: #0080ed;
+width:18%
 `;
 
-export const ImgBtn = styled.img`
-background-color: #0080ed;
-box-sizing: border-box;
-outline: none;
-border-style: none;
-width: 4vw;
-display: flex;
-justify-content: center;
-align-items: center;
-`;
 
 export const Footer = styled.footer`
 display: flex;

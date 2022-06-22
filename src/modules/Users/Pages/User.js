@@ -11,7 +11,7 @@ import {
     WindowScroller
   } from "react-virtualized";
 
-import {Item,ItemText,ItemBtn} from "../Styles/User"
+import {Item,ItemText,ItemBtn,TableWrapper,ItemHeader} from "../Styles/User"
 
 function User(props) {
   const [users, setUsers] = useState([]);
@@ -21,7 +21,27 @@ function User(props) {
     setUsers(Users)
   },[])
   return (
-    <div>
+    <TableWrapper>
+      <Item >
+              <ItemHeader>
+                Name
+              </ItemHeader>
+              <ItemHeader>
+                Role
+              </ItemHeader>
+              <ItemHeader>
+                Email
+              </ItemHeader>
+              <ItemHeader>
+                Address
+              </ItemHeader>
+              <ItemHeader>
+                Phone
+              </ItemHeader>
+              <ItemHeader>
+                Action
+              </ItemHeader>
+        </Item>
         {users.map((item, index) => (
               <Item key={index}>
                 <ItemText>
@@ -41,7 +61,7 @@ function User(props) {
                   
                 </ItemText>
                 <ItemText>
-                  {item.phone}
+                  {item.phoneNo}
                   
                 </ItemText>
                 <ItemBtn onClick={() => this.rmvTask(item.id)}>
@@ -50,7 +70,7 @@ function User(props) {
                   </ItemBtn>
               </Item>
             ))}
-    </div>
+    </TableWrapper>
   );
 }
 
