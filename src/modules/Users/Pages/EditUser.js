@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { CardContainer,CreateButton,FormGroup, Label, Input, Message } from "../Styles/CreateUser";
 import {Users} from "../../../data"
+
+import axios from 'axios'
+import api from "../../../config.json"
 // import { withRouter } from "react-router-dom";
 // import Navbar from "../../common/components/Navbar";
 
@@ -10,9 +13,9 @@ function CreateUser(props) {
 
   useEffect(()=>{
     setUser(Users[0])
-  })
+  },[])
   // function to create Task
-  const editUser = async () => {
+  const editUser = async (id) => {
     // props.history.push("/list-tasks");
 
     let errorObj = {}
@@ -45,11 +48,19 @@ function CreateUser(props) {
       setError({})
     }
 
-    console.log(error)
+    try{
+      const data = await axios.delete(api.SERVER_ADDRESS+"updateUser/"+id)
+    }
+    catch(error){
+    }
+    // console.log(error)
   };
 
   const handleChange = (e) => {
-    console.log(user)
+    // const copyUser = {...user}
+    // copyUser[e.target.name] = e.target.value
+    // console.log(user,e.target.name,e.target.value)
+    // setUser(copyUser)
     setUser({...user,[e.target.name]:e.target.value});
   };
 
@@ -77,8 +88,8 @@ function CreateUser(props) {
     </FormGroup>
     <FormGroup>
       <Label>Phone No</Label>
-      <Input onChange={handleChange} value={user.phoneNo} name="phone"/>
-      {error.phone && <Message>{error.phone}</Message>}
+      <Input onChange={handleChange} value={user.phoneNo} name="phoneNo"/>
+      {error.phoneNo && <Message>{error.phoneNo}</Message>}
     </FormGroup>
 
       <CreateButton disabled={!user} onClick={editUser}>
