@@ -8,6 +8,9 @@ import { InfiniteLoader, List } from "react-virtualized";
 import "react-virtualized/styles.css";
 import {Users} from "../../../data"
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
+import axios from 'axios'
+import api from "../../../config.json"
 // This example assumes you have a way to know/load this information
 
 export default function TestUser() {
@@ -35,6 +38,15 @@ export default function TestUser() {
       setUsers((p) => [...p, ...Users]);
       setIsNextPageLoading(false);
     }, 1000);
+  }
+
+  const rmvUser = async(id) =>{
+    try{
+      const data = await axios.delete(api.SERVER_ADDRESS+"deleteUser/"+id)
+    }
+    catch(error){
+    }
+    console.log(id)
   }
 
   function rowRenderer({ key, index, style }) {
@@ -65,10 +77,10 @@ export default function TestUser() {
 
                 <ItemText>
                   <Link to={'/edit-users/'+users[index]?.id}>Edit</Link>
-                {/* <ItemBtn onClick={() => this.rmvTask(users[index]?.id)}> */}
-                    {/* <ImgBtn src={Trash} /> */}
+                <ItemBtn onClick={() => rmvUser(users[index]?.id)}> 
+                Delete
                     {/* ss */}
-                  {/* </ItemBtn> */}
+                  </ItemBtn>
                   </ItemText>
               </Item>
             {/* ))} */}

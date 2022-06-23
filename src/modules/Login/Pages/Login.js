@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 // Import useNavigate from react-router-dom
 import { useNavigate } from 'react-router-dom'
 import {LoginForm,LoginInputGroup,Button,LoginInputField,LoginInputLabel,Message} from "../Styles/Login.js"
+import Swal from 'sweetalert2'
 function Login() {
   // let navigate = useNavigate()
  
@@ -33,6 +34,13 @@ function Login() {
     }
 
     console.log(errorObj)
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'User has been Login',
+      showConfirmButton: false,
+      timer: 1500
+    })
     // try {
     //   fetch(` ${REACT_APP_BACKEND_LOGIN_API}`, {
     //     // mode: `no-cors`,

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { CardContainer,CreateButton,FormGroup, Label, Input, Message } from "../Styles/CreateUser";
-// import { withRouter } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 // import Navbar from "../../common/components/Navbar";
+import Swal from 'sweetalert2'
 import axios from 'axios'
 import api from "../../../config.json"
 function CreateUser(props) {
+  const navigate = useNavigate();
   const [user, setUser] = useState({});
   const [error, setError ] = useState({});
 
@@ -51,10 +53,28 @@ function CreateUser(props) {
       const data = await axios.post(api.SERVER_ADDRESS+"addUser",{
         ...user
       })
+
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'User has been created',
+        showConfirmButton: false,
+        timer: 1500
+      })
       console.log(data)
 
     }
     catch(error){
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'User has been created',
+        showConfirmButton: false,
+        timer: 1500
+      })
+
+      // history.push("/push")
+      navigate('/users')
       console.log("error ",error)
     }
     // console.log(error)
