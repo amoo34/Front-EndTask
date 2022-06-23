@@ -1,77 +1,102 @@
-import React, { useState,useEffect } from "react";
-import {Users} from "../../../data"
-// import { CardContainer,CreateButton,FormGroup, Label, Input, Message } from "../Styles/CreateUser";
-// import { withRouter } from "react-router-dom";
-// import Navbar from "../../common/components/Navbar";
+// only needs to be imported once
 
-import {
-    AutoSizer,
-    InfiniteLoader,
-    List,
-    WindowScroller
-  } from "react-virtualized";
+// Table data as an array of objects
 
+import React, { useEffect,useState } from "react";
 import {Item,ItemText,ItemBtn,TableWrapper,ItemHeader} from "../Styles/User"
+import { InfiniteLoader, List } from "react-virtualized";
+import "react-virtualized/styles.css";
+import {Users} from "../../../data"
+import { Link } from "react-router-dom";
+// This example assumes you have a way to know/load this information
 
-function User(props) {
-  const [users, setUsers] = useState([]);
-  
+export default function TestUser() {
+  const [users, setUsers] = React.useState([]);
+  const [records,setRecords] = useState()
+
   useEffect(()=>{
-    console.log("COnfirm",Users)
     setUsers(Users)
+    setRecords(Users.length*3)
   },[])
-  return (
-    <TableWrapper>
-      <Item >
-              <ItemHeader>
-                Name
-              </ItemHeader>
-              <ItemHeader>
-                Role
-              </ItemHeader>
-              <ItemHeader>
-                Email
-              </ItemHeader>
-              <ItemHeader>
-                Address
-              </ItemHeader>
-              <ItemHeader>
-                Phone
-              </ItemHeader>
-              <ItemHeader>
-                Action
-              </ItemHeader>
-        </Item>
-        {users.map((item, index) => (
+  const [isNextPageLoading, setIsNextPageLoading] = React.useState(false);
+  const [pageNo,setPageNo] = useState(1)
+  function isRowLoaded({ index }) {
+    return !!users[index];
+  }
+
+  
+  console.log("iamCalled");
+  function handleNewPageLoad({ startIndex, stopIndex }) {
+    console.log("iamCalled");
+    setIsNextPageLoading(true);
+    setPageNo(pageNo+1)
+    console.log(pageNo+1)
+    setTimeout(() => {
+      setUsers((p) => [...p, ...Users]);
+      setIsNextPageLoading(false);
+    }, 1000);
+  }
+
+  function rowRenderer({ key, index, style }) {
+    return (
+      <div key={key} style={style}>
+        {/* {users.map((item, index) => ( */}
               <Item key={index}>
                 <ItemText>
-                  {item.name}
+                  {users[index]?.name}
                   
                 </ItemText>
                 <ItemText>
-                  {item.role}
+                  {users[index]?.role}
                   
                 </ItemText>
                 <ItemText>
-                  {item.email}
+                  {users[index]?.email}
                   
                 </ItemText>
                 <ItemText>
-                  {item.address}
+                  {users[index]?.address}
                   
                 </ItemText>
                 <ItemText>
-                  {item.phoneNo}
+                  {users[index]?.phone}
                   
                 </ItemText>
-                <ItemBtn onClick={() => this.rmvTask(item.id)}>
+
+                <ItemText>
+                  <Link to={'/edit-users/'+users[index]?.id}>Edit</Link>
+                {/* <ItemBtn onClick={() => this.rmvTask(users[index]?.id)}> */}
                     {/* <ImgBtn src={Trash} /> */}
-                    ss
-                  </ItemBtn>
+                    {/* ss */}
+                  {/* </ItemBtn> */}
+                  </ItemText>
               </Item>
-            ))}
+            {/* ))} */}
+        {/* {users[index]?.name + "      " + users[index]?.email} {index} */}
+      </div>
+    );
+  }
+  const loadMoreRows = isNextPageLoading ? () => {} : handleNewPageLoad;
+  return (
+    <TableWrapper>
+      <InfiniteLoader
+        isRowLoaded={isRowLoaded}
+        loadMoreRows={loadMoreRows}
+        rowCount={records}
+      >
+        {({ onRowsRendered, registerChild }) => (
+          <List
+            height={300}
+            onRowsRendered={onRowsRendered}
+            ref={registerChild}
+            rowCount={users?.length}
+            rowHeight={30}
+            rowRenderer={rowRenderer}
+            width={700}
+          />
+        )}
+      </InfiniteLoader>
+      {isNextPageLoading && <span>Loading...</span>}
     </TableWrapper>
   );
 }
-
-export default User

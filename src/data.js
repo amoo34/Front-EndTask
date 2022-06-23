@@ -5,7 +5,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -13,7 +13,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     }
     ,
     {
@@ -22,7 +22,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -30,7 +30,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -38,7 +38,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     }
     ,
     {
@@ -47,7 +47,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -55,7 +55,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -63,7 +63,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     }
     ,
     {
@@ -72,7 +72,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -80,7 +80,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -88,7 +88,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     }
     ,
     {
@@ -97,7 +97,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -105,7 +105,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -113,7 +113,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     }
     ,
     {
@@ -122,7 +122,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -130,7 +130,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -138,7 +138,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     }
     ,
     {
@@ -147,7 +147,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -155,7 +155,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -163,7 +163,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     }
     ,
     {
@@ -172,7 +172,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -180,7 +180,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -188,7 +188,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     }
     ,
     {
@@ -197,7 +197,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -205,7 +205,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -213,7 +213,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     }
     ,
     {
@@ -222,7 +222,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -230,7 +230,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     },
     {
         "id":1,
@@ -238,7 +238,7 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     }
     ,
     {
@@ -247,6 +247,6 @@ export const Users = [
         "email":"s@gmail.com",
         "address":"ss street",
         "role":"admin",
-        "phoneNo":"123123"
+        "phone":"123123"
     }
 ]

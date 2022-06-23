@@ -4,24 +4,29 @@ import React, { useState,useEffect } from "react";
 import Home from "../Pages/home"
 import {
   BrowserRouter,
+  withRouter,
   Routes,
   Route,
+  Link
 } from "react-router-dom";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Wrapper, RightItems } from "../Styles/Navbar";
 
 function Navbar() {
   const [check, setCheck] = useState(false);
 
   return (
+   
     <>
-      <BrowserRouter>
-    <Routes>
-      <Route path="/das" element={<Home />}>
-      </Route>
-    </Routes>
-  </BrowserRouter>
-    </>
+    <Wrapper>
+      <RightItems>
+        <Link to="/users"> List Users</Link>
+        <Link to="/create-users"> Create Users</Link>
+        <Link to="/">Login</Link>
+        {/* <Link to="/bulk-delete">Bulk Delete</Link> */}
+      </RightItems>
+    </Wrapper>
+  </>
   );
 }
 
