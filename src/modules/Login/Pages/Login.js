@@ -31,7 +31,7 @@ function Login() {
       errorObj.password = "Password couldnot be empty"
     }
     
-    console.log(user.email,user.email.match(mailFormat))
+    // console.log(user.email,user.email.match(mailFormat))
     if(!user.email.match(mailFormat)){
       errorCase = true
       if(!user.email){

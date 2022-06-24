@@ -11,7 +11,7 @@ import api from "../../../config.json"
 function CreateUser(props) {
 
   const navigate = useNavigate();
-  const [user, setUser] = useState({role:"ADMIN"});
+  const [user, setUser] = useState({role:"ADMIN",email:""});
   const [error, setError ] = useState({});
   const [createUserLoader,setCreateUserLoader] = useState(false)
 
@@ -20,16 +20,28 @@ function CreateUser(props) {
   // function to create User
   const createUser = async () => {
 
+    let mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     let errorObj = {}
     let errorCase = false
     if(!user.name){
       errorCase = true
       errorObj.name = "Name couldnot be empty"
     }
-    if(!user.email){
+    // if(!user.email){
+    //   errorCase = true
+    //   errorObj.email = "Email couldnot be empty"
+    // }
+    if(!user.email.match(mailFormat)){
       errorCase = true
-      errorObj.email = "Email couldnot be empty"
+      if(!user.email){
+        // errorCase = true
+        errorObj.email = "Email couldnot be empty"
+      }
+      else{
+        errorObj.email = "Invalid Email Format"
+      }
     }
+    
     if(!user.address){
       errorCase = true
       errorObj.address = "Address couldnot be empty"
