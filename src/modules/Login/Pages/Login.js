@@ -13,7 +13,7 @@ import api from "../../../config.json"
 function Login() {
 
   const navigate = useNavigate();
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({email:"",password:""});
   const [error, setError ] = useState({});
 
 
