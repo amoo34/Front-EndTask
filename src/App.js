@@ -11,25 +11,29 @@ import {
   Route,
 } from "react-router-dom";
 function App() {
+
+  
+
   return (
+
     <div className="App">
-     
-      <>
       <BrowserRouter>
-      <Navbar />
-    <Routes>
-      <Route path="/" element={<Login />} exact>
-      </Route>
-      <Route path="/users" element={<User />}>
-      </Route>
-      <Route path="/create-users" element={<CreateUser />}>
-      </Route>
-      <Route path="/edit-users/:id" element={<EditUser />}>
-      </Route>
-    </Routes>
-  </BrowserRouter>
-    </>
+        <Navbar />
+
+        <Routes>
+          
+          <Route path="/" element={<Login />} exact>
+          </Route>
+          <Route path="/users" element={<User />}>
+          </Route>
+          <Route path="/create-users" element={<CreateUser />}>
+          </Route>
+          <Route path="/edit-users/:id" element={<EditUser />}>
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
+    
   );
 }
 

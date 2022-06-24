@@ -13,11 +13,17 @@ function EditUser(props) {
 
   const navigate = useNavigate();
   const params = useParams()
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    name:"",
+    email:"",
+    address:"",
+    phoneNo:""
+  });
   const [error, setError ] = useState({});
   
 
 
+  // This useEffect is used to fetch the specific user using its ID
   useEffect(()=>{
 
     const fetchUser =async()=> {

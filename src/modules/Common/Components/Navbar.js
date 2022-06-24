@@ -21,13 +21,15 @@ function Navbar() {
     <Wrapper>
 
       <RightItems>
-        {token && 
+        {/* {token &&  */}
           <Link to="/users"> List Users</Link>
-        }
+        {/* } */}
         <Link to="/create-users"> Create Users</Link>
+        
         <Link to="/">Login</Link>
+        
       </RightItems>
-      
+
     </Wrapper>
   );
 }

@@ -13,6 +13,7 @@ function CreateUser(props) {
   const navigate = useNavigate();
   const [user, setUser] = useState({role:"ADMIN"});
   const [error, setError ] = useState({});
+  const [createUserLoader,setCreateUserLoader] = useState(false)
 
 
 
@@ -47,7 +48,9 @@ function CreateUser(props) {
     }
     else{
       setError({})
+
       try{
+        setCreateUserLoader(true)
       
         const data = await axios.post(api.SERVER_ADDRESS+"addUser",{
           ...user
@@ -60,12 +63,21 @@ function CreateUser(props) {
           showConfirmButton: false,
           timer: 1500
         })
-        console.log(data)
-  
-        navigate('/users')
+
+        
+        
+        setCreateUserLoader(false)
+        if(localStorage.getItem("token")){
+          navigate('/users')
+        }
+        else{
+          navigate('/')
+        }
       }
       catch(error){
-        console.log("error",error)
+
+        setCreateUserLoader(false)
+
         if(error.response.status === 401){
           Swal.fire({
             position: 'center',
@@ -86,8 +98,6 @@ function CreateUser(props) {
           })
         }
   
-        // history.push("/push")
-        console.log("error ",error)
       }
     }
 
@@ -130,7 +140,7 @@ function CreateUser(props) {
         <Input onChange={handleChange} name="password"/>
         {error.password && <Message>{error.password}</Message>}
       </FormGroup>
-      <CreateButton disabled={!user} onClick={createUser}>
+      <CreateButton disabled={!user} onClick={createUser} disable={createUserLoader}>
         Create User{" "}
       </CreateButton>
 

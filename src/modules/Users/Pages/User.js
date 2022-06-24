@@ -20,24 +20,41 @@ export default function TestUser() {
 
 
 
+  // This useEffect will be called whenever the PageNo changes
+  // When pageNo changes we will fetch new user from the Database and concatenate
   useEffect(()=>{
-    
+
     const fetchUsers =async()=> { 
       try{
-        const result = await axios.get(api.SERVER_ADDRESS+"getUsers?page=1",{
+
+        const result = await axios.get(api.SERVER_ADDRESS+`getUsers?page=${pageNo}`,{
           headers: { Authorization: localStorage.getItem("token") },
         })
-        setUsers(result.data.data.user.users)
+        // setUsers(result.data.data.user.users)
+        setIsNextPageLoading(false);
         setRecords(result.data.data.user.totalRecords)
+        setUsers((user)=>[...user,...result.data.data.user.users])
+
       }
       catch(error){
-        console.log(error)
+        setIsNextPageLoading(false);
+
+        if(error.response.status === 401){
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'You are not Authenticated',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
+        
       }
     }
 
     // Fetch Users Data
     fetchUsers()
-  },[])
+  },[pageNo])
   
   function isRowLoaded({ index }) {
     return !!users[index];
@@ -45,21 +62,10 @@ export default function TestUser() {
 
   // Fetch New Users when we scroll Down to bottom
   const handleNewPageLoad =async({ startIndex, stopIndex })=> {
-    console.log("iamCalled");
+    
     setIsNextPageLoading(true);
-    setPageNo(pageNo+1)
+    setPageNo(pageNo + 1)
 
-    try{
-      const result = await axios.get(api.SERVER_ADDRESS+`getUsers?page=${pageNo+1}`,{
-        headers: { Authorization: localStorage.getItem("token") },
-      })
-      setIsNextPageLoading(false);
-      setUsers((user)=>[...user,...result.data.data.user.users])
-    }
-    catch(error){
-      setIsNextPageLoading(false);
-      console.log(error)
-    }
   }
 
   // Remove a Specific User
@@ -163,7 +169,7 @@ export default function TestUser() {
           />
         )}
       </InfiniteLoader>
-      {isNextPageLoading && <span>Loading...</span>}
+      {/* {isNextPageLoading && <span>Loading...</span>} */}
 
     </TableWrapper>
   );
