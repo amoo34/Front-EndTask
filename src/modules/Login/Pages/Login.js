@@ -20,18 +20,29 @@ function Login() {
 
   // handleSignIn Button
   const handleSubmit = async(e) => {
-    console.log("S")
+    // console.log("S")
     e.preventDefault()
+
+    let mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     let errorObj = {}
     let errorCase = false
     if(!user.password){
       errorCase = true
       errorObj.password = "Password couldnot be empty"
     }
-    if(!user.email){
+    
+    console.log(user.email,user.email.match(mailFormat))
+    if(!user.email.match(mailFormat)){
       errorCase = true
-      errorObj.email = "Email couldnot be empty"
+      if(!user.email){
+        // errorCase = true
+        errorObj.email = "Email couldnot be empty"
+      }
+      else{
+        errorObj.email = "Invalid Email Format"
+      }
     }
+    
 
     if(errorCase){
       setError(errorObj)
