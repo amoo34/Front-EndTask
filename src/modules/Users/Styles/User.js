@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export const TableWrapper = styled.div`
-background-color: #0080ed;
 height:70vh;
-background-color:pink;
 overflow-y:auto
 `;
 
@@ -65,7 +63,8 @@ font-size: 1.2rem;
 export const ItemText = styled.span`
 font-family: "Ubuntu", sans-serif;
 border-bottom: 2px solid #ffff;
-width:18%
+width:25%;
+font-size:16px;
 `;
 
 export const ItemHeader = styled.span`
